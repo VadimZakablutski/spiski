@@ -14,6 +14,14 @@ for country in Countries:
     country=input("Введите страну: ")
     if country in Capitals:
         print("Столица страны "+country+": " +Capitals[country])
+        p=input("Возможно в базе данных ошибка, хотите исправить её? ")
+        if p=="Да":
+            o=input("Введите правильно страну: ")
+            l=input("Введите правильно столицу: ")
+            Capitals.pop(country)
+            Capitals.update({o: l})
+        elif p=="Нет":
+            print("Всего доброго!")
     else:
         print("В базе данных не страны с названием " +country)
         v=input("Хотите внести " +country+ " в базу данных?: ")
@@ -22,4 +30,3 @@ for country in Countries:
             Capitals.update({country: ca})
         elif v=="Нет":
             print("Всего доброго!")
-            break
